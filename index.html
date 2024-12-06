@@ -15,90 +15,103 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.6;
             color: #fff;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #001f3f;
+            background-color: #000815;
+            overflow-x: hidden;
         }
 
-        header {
-            text-align: center;
-            padding: 40px 0;
-            animation: fadeIn 1s ease-out;
+        .cosmic-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, #000815, #001f3f, #000815);
+            z-index: 1;
+            overflow: hidden;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .star-link {
+            position: absolute;
+            width: 4px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.5s ease;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #a0a0a0;
-            font-size: 1.2rem;
-        }
-
-        nav {
-            margin: 20px 0;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        nav:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 15px;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
+        .star-link::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
             left: 50%;
-            background-color: #66b3ff;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
             transition: all 0.3s ease;
         }
 
-        nav a:hover::after {
-            width: 80%;
-            left: 10%;
+        .star-link:hover {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.8);
         }
 
-        nav a:hover {
-            color: #66b3ff;
+        .star-link:hover::before {
+            opacity: 1;
+        }
+
+        .star-text {
+            position: absolute;
+            left: 220px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .star-link:hover .star-text {
+            opacity: 1;
+        }
+
+        /* Position each star-link */
+        #about-star { top: 20%; left: 30%; width: 150px; }
+        #experience-star { top: 35%; left: 25%; width: 180px; }
+        #projects-star { top: 50%; left: 35%; width: 160px; }
+        #skills-star { top: 65%; left: 28%; width: 140px; }
+        #contact-star { top: 80%; left: 32%; width: 170px; }
+
+        /* Content sections */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 100vh 20px 20px;
+            background: #000815;
         }
 
         section {
-            margin: 40px 0;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transform: translateX(100vw);
+            transition: transform 0.5s ease;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        section.visible {
+            transform: translateX(0);
+        }
+
+        h2 {
+            color: #66b3ff;
+            margin-bottom: 15px;
         }
 
         .project-card {
@@ -108,6 +121,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             cursor: pointer;
+            margin-bottom: 20px;
         }
 
         .project-card:hover {
@@ -117,8 +131,8 @@
         }
 
         .project-card h3 {
-            margin-bottom: 10px;
             color: #66b3ff;
+            margin-bottom: 10px;
         }
 
         .skills {
@@ -189,13 +203,6 @@
             transform: translateX(5px);
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         .contact-links {
             margin-top: 20px;
         }
@@ -205,6 +212,7 @@
             color: #66b3ff;
             text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .contact-links a:hover {
@@ -212,124 +220,164 @@
             transform: translateY(-2px);
         }
 
-        h2 {
-            color: #66b3ff;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        section:hover h2 {
-            transform: translateX(5px);
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
+            .project-card:hover {
+                transform: scale(1.02);
             }
             
-            h1 {
-                font-size: 2rem;
+            .experience-item:hover {
+                transform: scale(1.01);
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <p class="subtitle">Web Developer | Designer | Creator</p>
-    </header>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+    <nav class="cosmic-nav">
+        <a href="#about" class="star-link" id="about-star">
+            <span class="star-text">About Me</span>
+        </a>
+        <a href="#experience" class="star-link" id="experience-star">
+            <span class="star-text">Experience</span>
+        </a>
+        <a href="#projects" class="star-link" id="projects-star">
+            <span class="star-text">Projects</span>
+        </a>
+        <a href="#skills" class="star-link" id="skills-star">
+            <span class="star-text">Skills</span>
+        </a>
+        <a href="#contact" class="star-link" id="contact-star">
+            <span class="star-text">Contact</span>
+        </a>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I'm a passionate developer/designer with a focus on creating beautiful and functional web experiences. I love turning complex problems into simple, intuitive solutions.</p>
-    </section>
+    <div class="content">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate developer/designer with a focus on creating beautiful and functional web experiences. I love turning complex problems into simple, intuitive solutions.</p>
+        </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-item">
-            <h3>Senior Web Developer</h3>
-            <div class="company">Tech Company Name</div>
-            <div class="duration">January 2022 - Present</div>
-            <ul>
-                <li>Led the development of company's flagship web application</li>
-                <li>Managed a team of 5 developers and implemented agile methodologies</li>
-                <li>Reduced page load time by 40% through optimization techniques</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>Web Developer</h3>
-            <div class="company">Previous Company Name</div>
-            <div class="duration">June 2019 - December 2021</div>
-            <ul>
-                <li>Developed responsive websites for various clients</li>
-                <li>Implemented new features and maintained existing codebase</li>
-                <li>Collaborated with design team to improve user experience</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>Junior Developer</h3>
-            <div class="company">First Company Name</div>
-            <div class="duration">January 2018 - May 2019</div>
-            <ul>
-                <li>Assisted in the development of web applications</li>
-                <li>Fixed bugs and improved application performance</li>
-                <li>Participated in code reviews and team meetings</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Description of your first project. What did you build? What problems did it solve?</p>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Senior Web Developer</h3>
+                <div class="company">Tech Company Name</div>
+                <div class="duration">January 2022 - Present</div>
+                <ul>
+                    <li>Led the development of company's flagship web application</li>
+                    <li>Managed a team of 5 developers and implemented agile methodologies</li>
+                    <li>Reduced page load time by 40% through optimization techniques</li>
+                </ul>
             </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Description of your second project. What technologies did you use? What was your role?</p>
+
+            <div class="experience-item">
+                <h3>Web Developer</h3>
+                <div class="company">Previous Company Name</div>
+                <div class="duration">June 2019 - December 2021</div>
+                <ul>
+                    <li>Developed responsive websites for various clients</li>
+                    <li>Implemented new features and maintained existing codebase</li>
+                    <li>Collaborated with design team to improve user experience</li>
+                </ul>
             </div>
-            <div class="project-card">
-                <h3>Project 3</h3>
-                <p>Description of your third project. What were the key challenges and how did you overcome them?</p>
+
+            <div class="experience-item">
+                <h3>Junior Developer</h3>
+                <div class="company">First Company Name</div>
+                <div class="duration">January 2018 - May 2019</div>
+                <ul>
+                    <li>Assisted in the development of web applications</li>
+                    <li>Fixed bugs and improved application performance</li>
+                    <li>Participated in code reviews and team meetings</li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Responsive Design</span>
-        </div>
-    </section>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>Description of your first project. What did you build? What problems did it solve?</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project 2</h3>
+                    <p>Description of your second project. What technologies did you use? What was your role?</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project 3</h3>
+                    <p>Description of your third project. What were the key challenges and how did you overcome them?</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>I'm always open to new opportunities and collaborations.</p>
-        <div class="contact-links">
-            <a href="mailto:your.email@example.com">Email</a>
-            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-            <a href="https://github.com/yourusername">GitHub</a>
-        </div>
-    </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Responsive Design</span>
+            </div>
+        </section>
 
-    <footer>
-        <p>© 2024 Your Name. All rights reserved.</p>
-    </footer>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>I'm always open to new opportunities and collaborations.</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+                <a href="https://github.com/yourusername">GitHub</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2024 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add random twinkling effect to stars
+            const stars = document.querySelectorAll('.star-link');
+            stars.forEach(star => {
+                setInterval(() => {
+                    const randomOpacity = 0.3 + Math.random() * 0.5;
+                    star.style.background = `rgba(255, 255, 255, ${randomOpacity})`;
+                }, 2000 + Math.random() * 3000);
+            });
+
+            // Scroll handling for sections
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+
+            // Smooth scroll to sections
+            document.querySelectorAll('.star-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
