@@ -24,6 +24,18 @@
         header {
             text-align: center;
             padding: 40px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
@@ -41,6 +53,12 @@
             padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
         nav a {
@@ -48,6 +66,24 @@
             text-decoration: none;
             padding: 5px 15px;
             margin: 0 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #66b3ff;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 80%;
+            left: 10%;
         }
 
         nav a:hover {
@@ -70,6 +106,14 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .project-card h3 {
@@ -89,6 +133,12 @@
             padding: 5px 15px;
             border-radius: 15px;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
 
         .experience-item {
@@ -97,6 +147,14 @@
             margin-bottom: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .experience-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .experience-item h3 {
@@ -124,6 +182,11 @@
 
         .experience-item li {
             margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover li {
+            transform: translateX(5px);
         }
 
         footer {
@@ -141,15 +204,22 @@
             margin: 0 10px;
             color: #66b3ff;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .contact-links a:hover {
             color: #99ccff;
+            transform: translateY(-2px);
         }
 
         h2 {
             color: #66b3ff;
             margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        section:hover h2 {
+            transform: translateX(5px);
         }
 
         @media (max-width: 768px) {
