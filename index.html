@@ -16,7 +16,7 @@
             line-height: 1.6;
             color: #fff;
             background-color: #000815;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .cosmic-nav {
@@ -26,8 +26,7 @@
             width: 100%;
             height: 100vh;
             background: linear-gradient(to right, #000815, #001f3f, #000815);
-            z-index: -1;
-            overflow: hidden;
+            z-index: 0;
         }
 
         .star-link {
@@ -37,7 +36,7 @@
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.5s ease;
-            z-index: 2;
+            z-index: 10;
         }
 
         .star-link::before {
@@ -74,6 +73,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             white-space: nowrap;
+            z-index: 10;
         }
 
         .star-link:hover .star-text {
@@ -87,12 +87,11 @@
         #skills-star { top: 65%; left: 28%; width: 140px; }
         #contact-star { top: 80%; left: 32%; width: 170px; }
 
-        /* Content sections */
         .content {
             position: relative;
             z-index: 1;
-            padding: 20px
-            background: transparent;
+            min-height: 100vh;
+            padding: 60px 20px;
         }
 
         section {
@@ -111,135 +110,136 @@
         }
 
         h2 {
-            color: #66b3ff;
-            margin-bottom: 15px;
-        }
+    color: #66b3ff;
+    margin-bottom: 15px;
+}
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
 
-        .project-card:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+.project-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
 
-        .project-card h3 {
-            color: #66b3ff;
-            margin-bottom: 10px;
-        }
+.project-card h3 {
+    color: #66b3ff;
+    margin-bottom: 10px;
+}
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
 
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
+.skill-tag {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
 
-        .skill-tag:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
+.skill-tag:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
 
-        .experience-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+.experience-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 
-        .experience-item:hover {
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+.experience-item:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
 
-        .experience-item h3 {
-            color: #66b3ff;
-            margin-bottom: 5px;
-        }
+.experience-item h3 {
+    color: #66b3ff;
+    margin-bottom: 5px;
+}
 
-        .experience-item .company {
-            color: #a0a0a0;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
+.experience-item .company {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
 
-        .experience-item .duration {
-            color: #a0a0a0;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
+.experience-item .duration {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
 
-        .experience-item ul {
-            list-style-position: inside;
-            margin-top: 10px;
-            padding-left: 20px;
-        }
+.experience-item ul {
+    list-style-position: inside;
+    margin-top: 10px;
+    padding-left: 20px;
+}
 
-        .experience-item li {
-            margin-bottom: 5px;
-            transition: all 0.3s ease;
-        }
+.experience-item li {
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
 
-        .experience-item:hover li {
-            transform: translateX(5px);
-        }
+.experience-item:hover li {
+    transform: translateX(5px);
+}
 
-        .contact-links {
-            margin-top: 20px;
-        }
+.contact-links {
+    margin-top: 20px;
+}
 
-        .contact-links a {
-            margin: 0 10px;
-            color: #66b3ff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+.contact-links a {
+    margin: 0 10px;
+    color: #66b3ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
 
-        .contact-links a:hover {
-            color: #99ccff;
-            transform: translateY(-2px);
-        }
+.contact-links a:hover {
+    color: #99ccff;
+    transform: translateY(-2px);
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        @media (max-width: 768px) {
-            .project-card:hover {
-                transform: scale(1.02);
-            }
-            
-            .experience-item:hover {
-                transform: scale(1.01);
-            }
-        }
+@media (max-width: 768px) {
+    .project-card:hover {
+        transform: scale(1.02);
+    }
+    
+    .experience-item:hover {
+        transform: scale(1.01);
+    }
+}
     </style>
 </head>
 <body>
+    <!-- The cosmic navigation -->
     <nav class="cosmic-nav">
         <a href="#about" class="star-link" id="about-star">
             <span class="star-text">About Me</span>
@@ -258,92 +258,82 @@
         </a>
     </nav>
 
-    <div class="content">
-        <section id="about">
+    <!-- The main content -->
+    <main class="content">
+        <section id="about" class="visible">
             <h2>About Me</h2>
             <p>Hello! I'm a passionate developer/designer with a focus on creating beautiful and functional web experiences. I love turning complex problems into simple, intuitive solutions.</p>
         </section>
 
         <section id="experience">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Senior Web Developer</h3>
-                <div class="company">Tech Company Name</div>
-                <div class="duration">January 2022 - Present</div>
-                <ul>
-                    <li>Led the development of company's flagship web application</li>
-                    <li>Managed a team of 5 developers and implemented agile methodologies</li>
-                    <li>Reduced page load time by 40% through optimization techniques</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h3>Web Developer</h3>
-                <div class="company">Previous Company Name</div>
-                <div class="duration">June 2019 - December 2021</div>
-                <ul>
-                    <li>Developed responsive websites for various clients</li>
-                    <li>Implemented new features and maintained existing codebase</li>
-                    <li>Collaborated with design team to improve user experience</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h3>Junior Developer</h3>
-                <div class="company">First Company Name</div>
-                <div class="duration">January 2018 - May 2019</div>
-                <ul>
-                    <li>Assisted in the development of web applications</li>
-                    <li>Fixed bugs and improved application performance</li>
-                    <li>Participated in code reviews and team meetings</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Description of your first project. What did you build? What problems did it solve?</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Description of your second project. What technologies did you use? What was your role?</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>Description of your third project. What were the key challenges and how did you overcome them?</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills">
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">CSS</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Responsive Design</span>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>I'm always open to new opportunities and collaborations.</p>
-            <div class="contact-links">
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-                <a href="https://github.com/yourusername">GitHub</a>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2024 Your Name. All rights reserved.</p>
-        </footer>
+    <h2>Experience</h2>
+    <div class="experience-item">
+        <h3>Senior Web Developer</h3>
+        <div class="company">Tech Company Name</div>
+        <div class="duration">January 2022 - Present</div>
+        <ul>
+            <li>Led the development of company's flagship web application</li>
+            <li>Managed a team of 5 developers and implemented agile methodologies</li>
+            <li>Reduced page load time by 40% through optimization techniques</li>
+        </ul>
     </div>
+
+    <div class="experience-item">
+        <h3>Web Developer</h3>
+        <div class="company">Previous Company Name</div>
+        <div class="duration">June 2019 - December 2021</div>
+        <ul>
+            <li>Developed responsive websites for various clients</li>
+            <li>Implemented new features and maintained existing codebase</li>
+            <li>Collaborated with design team to improve user experience</li>
+        </ul>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of your first project. What did you build? What problems did it solve?</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of your second project. What technologies did you use? What was your role?</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Description of your third project. What were the key challenges and how did you overcome them?</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Responsive Design</span>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>I'm always open to new opportunities and collaborations.</p>
+    <div class="contact-links">
+        <a href="mailto:your.email@example.com">Email</a>
+        <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+        <a href="https://github.com/yourusername">GitHub</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Your Name. All rights reserved.</p>
+</footer>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
