@@ -67,7 +67,10 @@
             width: auto;
             height: auto;
             z-index: -1;
-            background: #0a1220; /* Fallback color if video doesn't load */
+            background: #0a1220;
+            object-fit: cover;
+            object-position: center center;
+            transform: scale(1.0);/* Fallback color if video doesn't load */
         }
         .video-overlay {
             position: fixed;
