@@ -60,16 +60,15 @@
         }
         .video-bg {
             position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            top: 50%;
+            left: 50%;
+            width: 100vw;    /* Full viewport width */
+            height: 100vh;   /* Full viewport height */
+            transform: translate(-50%, -50%);  /* Center the video */
+            object-fit: cover;    /* Cover the entire container */
             z-index: -1;
-            transform: translateX(-50%) translateY(-50%);
-            background: #0a1220;
-            object-fit: cover;
+            background: #0a1220;  /* Fallback color */
+        }
             
            /* Fallback color if video doesn't load */
         }
